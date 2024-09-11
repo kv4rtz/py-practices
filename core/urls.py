@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # start: Практическая 7 
+    path('', lambda req: render(req, 'home.html')),
+    # end
+    
     path('practice1/', include('practice1.urls')),
+    path('practice2/', include('practice2.urls')),
+    path('practice6/', include('practice6.urls')),
+    path('practice7/', include('practice7.urls')),
 ]
