@@ -24,8 +24,8 @@ class RegisterForm(UserCreationForm):
         required=False,
     )
 
-    password1 = forms.EmailField(
-        widget=forms.TextInput(
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(
             attrs={
                 'placeholder': 'Введите пароль'
             }
@@ -33,8 +33,8 @@ class RegisterForm(UserCreationForm):
         required=False,
     )
 
-    password2 = forms.EmailField(
-        widget=forms.TextInput(
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(
             attrs={
                 'placeholder': 'Повторите пароль'
             }
