@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpRequest
 from .forms import LoginForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 def login_user(req: HttpRequest):
     if req.method == 'POST':
@@ -19,3 +19,9 @@ def login_user(req: HttpRequest):
         return render(req, 'p12_login.html', {
             "form": form
         })
+
+def logout_user(req: HttpRequest):
+    if req.method == 'POST':
+        logout(req)
+    
+    return redirect('home')

@@ -23,6 +23,12 @@
           <li class="py-2 px-3">
             {{ request.user.username }}
           </li>
+          <li class="py-2 px-3">
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit">Выйти из аккаунта</button>
+            </form>
+          </li>
           {% endif %}
           <li class="py-2 px-3 flex items-center gap-3">
             <form action="{% url 'search' %}">
