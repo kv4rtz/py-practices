@@ -1,0 +1,9 @@
+{% extends 'p7_layout.html' %}
+
+{% block content %}
+
+<a href="{% url 'products' %}">Вернуться назад</a>
+<h1 class="text-3xl font-bold mb-5">{{ product.title }}</h1>
+<div class="text-3xl font-bold">{{ product.price }} ₽</div>
+
+{% endblock %}

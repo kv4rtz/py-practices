@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'practice5',
     'practice6',
     'practice7',
+    'practice8',
+    'practice9',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +134,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

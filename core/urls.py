@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,9 @@ urlpatterns = [
     path('practice2/', include('practice2.urls')),
     path('practice6/', include('practice6.urls')),
     path('practice7/', include('practice7.urls')),
+    path('practice8/', include('practice8.urls')),
+    path('practice9/', include('practice9.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

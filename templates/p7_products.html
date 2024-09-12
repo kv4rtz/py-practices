@@ -7,7 +7,7 @@
 <div class="grid grid-cols-3">
     {% for i in products %}
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-        <a href="#">
+        <a href="{% url 'detail_product' i.id %}">
             <img class="p-8 rounded-t-lg" src="https://flowbite.com/docs/images/products/apple-watch.png" alt="product image" />
         </a>
         <div class="px-5 pb-5">
