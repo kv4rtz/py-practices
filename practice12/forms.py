@@ -17,7 +17,7 @@ class LoginForm(AuthenticationForm):
     password = forms.EmailField(
         widget=forms.PasswordInput(
             attrs={
-                 "autocomplete": 'current-password',
+                "autocomplete": 'current-password',
                 'placeholder': 'Введите пароль'
             }
         ),
@@ -28,8 +28,14 @@ class LoginForm(AuthenticationForm):
         "invalid_login": ('Введите логин и пароль правильно')
     }
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if email == '':
+            raise forms.ValidationError('Введите почту', code='invalid')
+        return email
+
     def clean_password(self):
-        password = self.cleaned_data['password1']
+        password = self.cleaned_data['password']
         if password == '':
             raise forms.ValidationError('Введите пароль', code='invalid')
         return password
@@ -41,4 +47,3 @@ class LoginForm(AuthenticationForm):
         if not User.objects.get(username=username):
             raise forms.ValidationError('Такого пользователя не существует', code='invalid')
         return username
-    

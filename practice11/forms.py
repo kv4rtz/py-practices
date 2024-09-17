@@ -42,7 +42,7 @@ class RegisterForm(UserCreationForm):
         required=False,
     )
 
-    def clean_password1(self):
+    def clean_password(self):
         password = self.cleaned_data['password1']
         if password == '':
             raise forms.ValidationError('Введите пароль', code='invalid')
