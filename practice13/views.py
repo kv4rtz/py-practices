@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
 from .models import Profile
+from practice15.models import Order
 
 @login_required(login_url='login')
 def profile_view(req: HttpRequest):
     user = Profile.objects.select_related('user').get(user=req.user)
+    orders = Order.objects.select_related('customer_user').all()
 
     if req.method == 'POST':
         user.gender = req.POST['gender']
@@ -19,6 +21,7 @@ def profile_view(req: HttpRequest):
 
         
     return render(req, 'p13_profile.html', {
-        'user': user
+        'user': user,
+        'orders': orders
     })
 

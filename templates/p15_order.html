@@ -1,0 +1,13 @@
+{% extends "p7_layout.html" %}
+
+{% block content %}
+<div>
+    <h2>Оформление заказа</h2>
+    <form action="{% url 'create_order' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Заказать</button>
+    </form>
+</div>
+{% endblock content %}
+
