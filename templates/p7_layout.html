@@ -49,6 +49,9 @@
           <li>
             <a href="{% url 'about' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">О нас</a>
           </li>
+          <li>
+            <a href="{% url 'cart_detail' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Корзина ({{cart |length}})</a>
+          </li>
         </ul>
       </div>
     </div>

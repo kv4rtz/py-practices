@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'practice11',
     'practice12',
     'practice13',
+    'practice14',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'core.context_processors.cart',
             ],
         },
     },

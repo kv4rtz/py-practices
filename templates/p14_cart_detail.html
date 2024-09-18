@@ -1,0 +1,16 @@
+{% extends "p7_layout.html" %}
+
+{% block content %}
+<div>
+    {% for i in cart %}
+    <div>{{ i.product.title }}</div>
+    <div>Количество: {{ i.quantity }} <a href="{% url 'cart_add' i.product.id %}">+</a> </div>
+    <div>Цена: {{ i.price }}</div>
+    <a href="{% url 'cart_remove' i.product.id %}">Удалить</a>
+    {% endfor %}
+    
+    <div>Сумма корзины: {{ cart.get_total_price }}</div>
+    <a href="{% url 'cart_remove_all' %}">Очистить корзину</a>
+</div>
+{% endblock content %}
+
